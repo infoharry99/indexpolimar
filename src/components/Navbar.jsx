@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Phone, MessageCircle, Menu, X, ChevronRight, FileText } from 'lucide-react';
+import { Phone, Menu, X, ChevronRight, FileText } from 'lucide-react';
+import WhatsAppIcon from './WhatsAppIcon';
 
 export default function Navbar({ onOpenQuote }) {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -7,7 +8,7 @@ export default function Navbar({ onOpenQuote }) {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 20) {
+      if (window.window.scrollY > 20) {
         setIsScrolled(true);
       } else {
         setIsScrolled(false);
@@ -30,7 +31,7 @@ export default function Navbar({ onOpenQuote }) {
 
   return (
     <header className="sticky top-0 z-50 transition-all duration-300">
-      {/* Topbar matching Pearlcon CSS */}
+      {/* Topbar */}
       <div className={`bg-[#0a1626] text-white border-b border-white/10 transition-all duration-300 overflow-hidden ${
         isScrolled ? 'max-h-0 opacity-0 py-0' : 'max-h-10 opacity-100 py-1.5'
       }`}>
@@ -52,7 +53,7 @@ export default function Navbar({ onOpenQuote }) {
         </div>
       </div>
 
-      {/* Mainbar matching Pearlcon CSS */}
+      {/* Mainbar */}
       <div className={`bg-white/98 backdrop-blur-md border-b border-[#dce1e6] transition-all duration-300 ${
         isScrolled ? 'shadow-lg py-2' : 'py-3'
       }`}>
@@ -89,16 +90,16 @@ export default function Navbar({ onOpenQuote }) {
             ))}
           </nav>
 
-          {/* Action Buttons */}
+          {/* Action Buttons with Exact WhatsApp Icon */}
           <div className="hidden sm:flex items-center gap-3">
             <a
               href="https://wa.me/916263225675"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2.5 rounded-full text-emerald-600 bg-emerald-50 hover:bg-emerald-100 transition-colors border border-emerald-200"
+              className="hover:scale-105 transition-transform"
               title="Chat on WhatsApp"
             >
-              <MessageCircle className="w-5 h-5" />
+              <WhatsAppIcon size={40} className="w-5 h-5" />
             </a>
 
             <button

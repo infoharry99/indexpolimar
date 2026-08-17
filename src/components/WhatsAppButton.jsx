@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { MessageCircle, Phone, X } from 'lucide-react';
+import { Phone, X } from 'lucide-react';
+import WhatsAppIcon from './WhatsAppIcon';
 
 export default function WhatsAppButton() {
   const [open, setOpen] = useState(false);
@@ -7,16 +8,14 @@ export default function WhatsAppButton() {
   const defaultMsg = encodeURIComponent("Hello Index Polimar, I am interested in your plastic mulching film products. Please share product details and pricing.");
 
   return (
-    <div className="fixed bottom-12 right-6 z-50 flex flex-col items-end">
+    <div className="fixed bottom-8 right-6 z-50 flex flex-col items-end">
       
       {/* Contact Selector Popup */}
       {open && (
         <div className="mb-3 bg-white rounded-2xl p-4 shadow-2xl border border-[#dce1e6] text-[#13202f] w-72 animate-fadeIn">
           <div className="flex items-center justify-between border-b border-[#f4f6f8] pb-2 mb-3">
             <div className="flex items-center gap-2">
-              <div className="w-7 h-7 rounded-full bg-[#25D366] text-white flex items-center justify-center text-xs">
-                <MessageCircle className="w-4 h-4" />
-              </div>
+              <WhatsAppIcon size={28} className="w-4 h-4" />
               <span className="font-heading font-extrabold text-xs text-[#13202f]">Index Polimar WhatsApp</span>
             </div>
             <button
@@ -42,7 +41,7 @@ export default function WhatsAppButton() {
                 <Phone className="w-3.5 h-3.5 text-emerald-600" />
                 <span>Line 1: 6263225675</span>
               </div>
-              <span className="text-[10px] bg-[#25D366] text-white px-2 py-0.5 rounded">Chat</span>
+              <span className="text-[10px] bg-[#25D366] text-white px-2 py-0.5 rounded font-bold">Chat</span>
             </a>
 
             <a
@@ -55,20 +54,20 @@ export default function WhatsAppButton() {
                 <Phone className="w-3.5 h-3.5 text-emerald-600" />
                 <span>Line 2: 9617232387</span>
               </div>
-              <span className="text-[10px] bg-[#25D366] text-white px-2 py-0.5 rounded">Chat</span>
+              <span className="text-[10px] bg-[#25D366] text-white px-2 py-0.5 rounded font-bold">Chat</span>
             </a>
           </div>
         </div>
       )}
 
-      {/* Floating Circle Button */}
+      {/* Floating Button matching user screenshot copy */}
       <button
         onClick={() => setOpen(!open)}
-        className="w-[58px] h-[58px] rounded-full bg-[#25D366] hover:bg-[#20ba5a] text-white shadow-2xl flex items-center justify-center transition-all transform hover:-translate-y-1 hover:scale-105 border-2 border-white"
+        className="transition-all transform hover:scale-110 active:scale-95 cursor-pointer"
         title="Chat on WhatsApp"
         aria-label="WhatsApp Contact"
       >
-        <MessageCircle className="w-8 h-8 fill-white/20" />
+        <WhatsAppIcon size={56} className="w-7 h-7" />
       </button>
 
     </div>
