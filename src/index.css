@@ -1,0 +1,160 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --ink: #0a1626;
+    --ink-2: #101f35;
+    --steel: #233247;
+    --surface: #f4f6f8;
+    --surface-2: #eaedf1;
+    --white: #ffffff;
+    --amber: #e98423;
+    --amber-2: #ffa94d;
+    --violet: #5b4c9f;
+    --text: #13202f;
+    --text-mute: #5b6672;
+    --text-on-dark: #dce4ee;
+    --text-on-dark-mute: #8b9aae;
+    --line: #dce1e6;
+    --radius: 14px;
+    --maxw: 1240px;
+    --ease: cubic-bezier(0.16, 0.8, 0.24, 1);
+  }
+
+  body {
+    margin: 0;
+    background: var(--surface);
+    color: var(--text);
+    font-family: "IBM Plex Sans", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6, .font-heading {
+    font-family: "Space Grotesk", sans-serif;
+    margin: 0;
+    letter-spacing: -0.01em;
+    color: var(--text);
+  }
+
+  p {
+    margin: 0;
+    color: var(--text-mute);
+    line-height: 1.65;
+  }
+}
+
+/* Pearlcon Eyebrow Label Style */
+.eyebrow {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--amber);
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.eyebrow::before {
+  content: "";
+  width: 18px;
+  height: 1px;
+  background: var(--amber);
+  display: inline-block;
+}
+
+/* Pearlcon Button System */
+.btn-primary {
+  background: var(--amber);
+  color: #1a1005;
+  font-family: "IBM Plex Sans", sans-serif;
+  font-weight: 700;
+  box-shadow: 0 8px 24px -8px rgba(233, 132, 35, 0.55);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.35s cubic-bezier(0.16, 0.8, 0.24, 1), box-shadow 0.35s cubic-bezier(0.16, 0.8, 0.24, 1);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px -8px rgba(233, 132, 35, 0.65);
+}
+
+.btn-primary::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, transparent 30%, rgba(255, 255, 255, 0.55) 50%, transparent 70%);
+  transform: translateX(-120%);
+  transition: transform 0.7s cubic-bezier(0.16, 0.8, 0.24, 1);
+}
+
+.btn-primary:hover::before {
+  transform: translateX(120%);
+}
+
+.btn-ghost-dark {
+  color: var(--text-on-dark);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  transition: border-color 0.3s, transform 0.3s;
+}
+
+.btn-ghost-dark:hover {
+  border-color: rgba(255, 255, 255, 0.55);
+  transform: translateY(-2px);
+}
+
+/* Floating Animations */
+@keyframes driftA {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(40px, 30px); }
+}
+
+@keyframes driftB {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(-30px, 40px); }
+}
+
+@keyframes bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes ping {
+  0% { transform: scale(0.9); opacity: 0.7; }
+  100% { transform: scale(1.7); opacity: 0; }
+}
+
+.float-card {
+  position: absolute;
+  background: rgba(16, 31, 53, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(10px);
+  border-radius: 14px;
+  padding: 12px 16px;
+  box-shadow: 0 20px 40px -20px rgba(0, 0, 0, 0.6);
+  animation: bob 5s ease-in-out infinite;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 9px;
+}
+::-webkit-scrollbar-track {
+  background: var(--ink);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--steel);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--amber);
+}
+
+.glass-header {
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
